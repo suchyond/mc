@@ -123,6 +123,7 @@ enum
     CK_LearnKeys,
     CK_Bookmark,
     CK_Quit,
+    CK_Test,
     CK_QuitQuiet,
     /* C-x or similar */
     CK_ExtendedKeyMap,
