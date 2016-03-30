@@ -532,6 +532,14 @@ mcview_execute_cmd (WView * view, long command)
         if (!mcview_is_in_panel (view))
             dlg_stop (WIDGET (view)->owner);
         break;
+    case CK_Test:
+        if (query_dialog (_("The Midnight Commander"),
+                           _("Do you really want to quit the Midnight Commander?"),
+                           D_NORMAL, 2, _("&Yes"), _("&No")) == 0){
+        }
+       //if (!mcview_is_in_panel (view)){
+       //} 
+        break;  
     case CK_Cancel:
         /* don't close viewer due to SIGINT */
         break;

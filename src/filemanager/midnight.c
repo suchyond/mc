@@ -273,6 +273,7 @@ create_command_menu (void)
      */
     GList *entries = NULL;
 
+    entries = g_list_prepend (entries, menu_entry_create (_("&Test"), CK_Test));
     entries = g_list_prepend (entries, menu_entry_create (_("&User menu"), CK_UserMenu));
     entries = g_list_prepend (entries, menu_entry_create (_("&Directory tree"), CK_Tree));
     entries = g_list_prepend (entries, menu_entry_create (_("&Find file"), CK_Find));
@@ -1063,6 +1064,16 @@ quit_cmd (void)
     return quit_cmd_internal (0);
 }
 
+static gboolean
+test_cmd (void)
+{
+        if (query_dialog (_("The Midnight Commander"),
+                           _("This menu item was created by Ondřej Suchý. Do you like it?"),
+                           D_NORMAL, 2, _("&Yes"), _("&No")) == 0){
+            
+        }
+        return 0;     
+}
 /* --------------------------------------------------------------------------------------------- */
 
 /**
@@ -1299,6 +1310,9 @@ midnight_execute_cmd (Widget * sender, long command)
         break;
     case CK_Quit:
         quit_cmd ();
+        break;
+    case CK_Test:
+        test_cmd ();
         break;
     case CK_LinkSymbolicRelative:
         link_cmd (LINK_SYMLINK_RELATIVE);
